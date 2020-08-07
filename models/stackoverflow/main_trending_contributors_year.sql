@@ -27,3 +27,4 @@ joined as (
 
 select * from joined
 ORDER BY 6 DESC
+LIMIT 10

@@ -11,3 +11,4 @@ with unanswered_query_type as (
 
 )
 select * from unanswered_query_type
+ORDER BY view_count DESC
