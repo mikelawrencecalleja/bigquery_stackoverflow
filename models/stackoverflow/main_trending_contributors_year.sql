@@ -13,6 +13,13 @@ trending_contributors as (
     select * from {{ ref('index_trending_contributors')}}
 ),
 
+specialist_area as (
+    select last_editor_user_id,
+    MAX (total_score)
+    FROM {{ ref('index_query_volumes')}}
+    GROUP BY last_editor_user_id
+)
+ 
 joined as (
     SELECT DISTINCT t.id,
     t.active_since_date,
@@ -27,4 +34,4 @@ joined as (
 
 select * from joined
 ORDER BY 6 DESC
-LIMIT 10
+LIMIT 100
