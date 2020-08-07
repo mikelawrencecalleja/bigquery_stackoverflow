@@ -1,0 +1,10 @@
+stackoverflow:
+target: dev
+outputs:
+dev:
+type: bigquery
+method: service-account
+project: precise-ether-284916
+dataset: dbt_mcalleja
+threads: 1
+timeout_seconds: 300
