@@ -14,7 +14,7 @@ specialist_area as (
     MAX (total_score)
     FROM `precise-ether-284916`.`dbt_mcalleja`.`index_query_volumes`
     GROUP BY last_editor_user_id
-)
+),
  
 joined as (
     SELECT DISTINCT t.id,

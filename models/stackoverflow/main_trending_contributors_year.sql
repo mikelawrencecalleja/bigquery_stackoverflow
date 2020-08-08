@@ -18,7 +18,7 @@ specialist_area as (
     MAX (total_score)
     FROM {{ ref('index_query_volumes')}}
     GROUP BY last_editor_user_id
-)
+),
  
 joined as (
     SELECT DISTINCT t.id,
