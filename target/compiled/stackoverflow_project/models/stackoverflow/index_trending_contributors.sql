@@ -1,3 +1,4 @@
+--This model shows the highest ranked users for the last five years, by upvotes
 
 
 SELECT DISTINCT

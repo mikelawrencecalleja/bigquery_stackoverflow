@@ -1,5 +1,12 @@
 
 
+  create or replace table `precise-ether-284916`.`dbt_mcalleja`.`main_trending_cont_year`
+  
+  
+  OPTIONS()
+  as (
+    
+
 with badges_index as (
 
     select * from `precise-ether-284916`.`dbt_mcalleja`.`index_badges_count`
@@ -11,7 +18,7 @@ trending_contributors as (
 
 specialist_area as (
     select last_editor_user_id,
-    MAX (total_score)
+    MAX (max_score)
     FROM `precise-ether-284916`.`dbt_mcalleja`.`index_query_volumes`
     GROUP BY last_editor_user_id
 ),
@@ -32,3 +39,5 @@ select * from joined
 where display_name NOT LIKE '%user%'
 ORDER BY 6 DESC
 LIMIT 100
+  );
+    

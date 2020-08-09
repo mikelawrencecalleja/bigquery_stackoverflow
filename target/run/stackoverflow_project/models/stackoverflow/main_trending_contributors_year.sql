@@ -36,6 +36,7 @@ joined as (
 )
 
 select * from joined
+where display_name NOT LIKE '%user%'
 ORDER BY 6 DESC
 LIMIT 100
   );

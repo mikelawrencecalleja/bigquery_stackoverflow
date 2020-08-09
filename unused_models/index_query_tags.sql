@@ -1,3 +1,4 @@
+--This model isn't currently used in any star tables. It gives an ad-hoc list of most queried tags from the tag table.
 {{
     config(
         materialized='table'

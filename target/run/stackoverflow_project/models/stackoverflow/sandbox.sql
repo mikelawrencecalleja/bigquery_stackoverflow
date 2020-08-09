@@ -1,4 +1,11 @@
---This model shows the the user IDs that have achieved the highest scores for their answers, grouped by tags
+
+
+  create or replace table `precise-ether-284916`.`dbt_mcalleja`.`sandbox`
+  
+  
+  OPTIONS()
+  as (
+    --This model shows the the user IDs that have achieved the highest scores for their answers, grouped by tags
 
  
 select DISTINCT 
@@ -15,3 +22,5 @@ select DISTINCT
     ON a.last_editor_user_id = b.sme_user_id AND a.total_score = b.max_score
     order by 1
     LIMIT 10
+  );
+    

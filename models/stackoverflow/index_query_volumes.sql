@@ -1,3 +1,4 @@
+--This model shows the highest scoring answers, grouped by who posted the answer, what the parent query was, and the tag
 {{
     config(
         materialized='table'
@@ -8,12 +9,12 @@ with answer_volume as (select DISTINCT
 last_editor_user_id,
 last_editor_display_name,
 parent_id,
-SUM (score) AS total_score
+MAX (score) AS max_score
 FROM bigquery-public-data.stackoverflow.posts_answers
 where last_editor_user_id >0
 AND creation_date > '2015-01-01T00:00:00+00:00'
 GROUP BY last_editor_user_id,last_editor_display_name,parent_id
-ORDER BY total_score DESC
+ORDER BY max_score DESC
 ),
 
 tags as (
@@ -21,15 +22,16 @@ tags as (
 ),
 
 joined as (
-    SELECT DISTINCT a.last_editor_user_id,
+    SELECT DISTINCT 
+    t.tags,
+    a.last_editor_user_id,
     a.parent_id,
-    a.total_score,
-    t.tags
+    a.max_score,
     FROM answer_volume a
     inner join tags t 
     on a.parent_id = t.id
-    ORDER BY total_score DESC
-    LIMIT 100000
+    ORDER BY tags ASC
+    LIMIT 10000
 )
 
 select * from joined
