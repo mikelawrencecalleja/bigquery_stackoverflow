@@ -21,7 +21,7 @@ subject_matter_experts as(
 joined as (
     SELECT DISTINCT
     u.title,
-    u.tags,
+    s.tags,
     s.sme_user_id
     from subject_matter_experts s
     INNER JOIN unanswered_query_type u
