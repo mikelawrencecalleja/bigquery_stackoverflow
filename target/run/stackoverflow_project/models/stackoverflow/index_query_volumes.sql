@@ -34,7 +34,6 @@ joined as (
     inner join tags t 
     on a.parent_id = t.id
     ORDER BY tags ASC
-    LIMIT 10000
 )
 
 select * from joined

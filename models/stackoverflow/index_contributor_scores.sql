@@ -1,3 +1,4 @@
+--This model splices together contributing user's amount of badges won, with the upvotes they've received.
 {{
     config(
         materialized='table'
@@ -16,7 +17,7 @@ trending_contributors as (
 specialist_area as (
     select last_editor_user_id,
     MAX (max_score)
-    FROM {{ ref('index_query_volumes')}}
+    FROM {{ ref('index_query_answers')}}
     GROUP BY last_editor_user_id
 ),
  
