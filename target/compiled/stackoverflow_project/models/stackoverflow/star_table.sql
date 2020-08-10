@@ -38,4 +38,4 @@ joined as (
 )
 
 select * from joined
-order by 1 DESC
+order by 7 DESC

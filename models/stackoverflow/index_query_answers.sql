@@ -6,14 +6,13 @@
 }}
 
 with answer_volume as (select DISTINCT 
-last_editor_user_id,
-last_editor_display_name,
+owner_user_id,
 parent_id,
 MAX (score) AS max_score
 FROM bigquery-public-data.stackoverflow.posts_answers
 where last_editor_user_id >0
 AND creation_date > '2008-01-01T00:00:00+00:00'
-GROUP BY last_editor_user_id,last_editor_display_name,parent_id
+GROUP BY owner_user_id,parent_id
 ORDER BY max_score DESC
 ),
 
@@ -24,7 +23,7 @@ tags as (
 joined as (
     SELECT DISTINCT 
     t.tags,
-    a.last_editor_user_id,
+    a.owner_user_id,
     a.parent_id,
     a.max_score,
     FROM answer_volume a

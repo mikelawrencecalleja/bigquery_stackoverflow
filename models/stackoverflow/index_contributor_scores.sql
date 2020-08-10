@@ -15,10 +15,10 @@ trending_contributors as (
 ),
 
 specialist_area as (
-    select last_editor_user_id,
+    select owner_user_id,
     MAX (max_score)
     FROM {{ ref('index_query_answers')}}
-    GROUP BY last_editor_user_id
+    GROUP BY owner_user_id
 ),
  
 joined as (
@@ -36,4 +36,3 @@ joined as (
 select * from joined
 where display_name NOT LIKE '%user%'
 ORDER BY 6 DESC
-LIMIT 100
