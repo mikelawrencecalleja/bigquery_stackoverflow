@@ -1,7 +1,7 @@
 --This model shows the the user IDs that have achieved the highest scores for their answers, grouped by tags
 {{
     config(
-        materialized='table'
+        materialized='incremental'
     )
 }}
  

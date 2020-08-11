@@ -29,6 +29,7 @@ joined as (
     t.active_since_date,
     t.display_name,
     t.up_votes,
+    t.reputation,
     b.badge_count,
     ((t.up_votes + b.badge_count)/2) AS performance_index
     FROM trending_contributors t

@@ -1,7 +1,7 @@
 --This model shows the highest scoring answers, grouped by who posted the answer, what the parent query was, and the tag
 {{
     config(
-        materialized='table'
+        materialized='incremental'
     )
 }}
 
