@@ -1,15 +1,5 @@
-Welcome to your new dbt project!
+Welcome to my Stackoverflow insights project.
 
-### Using the starter project
+### Executive summary
 
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](http://slack.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+This model can identify the most suitable SME for a given topic in Stackoverflow, and then join this data to the overall Stackoverflow query data in order to gain insight on things such as the 'reputations' for the individual SMEs identified for different Stackoverflow query topics. This is alongside being able to analyse insights such as the level of outstanding queries by day, as well as trends of outstanding queries by topic to help identify spikes in unanswered queries.
